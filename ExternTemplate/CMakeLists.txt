@@ -33,3 +33,10 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC Calculator)
+
+file(GENERATE OUTPUT object-files.txt CONTENT "$<TARGET_OBJECTS:Calculator>;$<TARGET_OBJECTS:${PROJECT_NAME}>")
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_LIST_DIR}/stat.cmake
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+)
