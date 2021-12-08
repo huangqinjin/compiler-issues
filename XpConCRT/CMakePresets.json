@@ -17,6 +17,16 @@
       "generator": "Ninja Multi-Config"
     },
     {
+      "name": "clang-gnu",
+      "inherits": "ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_FLAGS": "-m32",
+        "CMAKE_CXX_FLAGS": "-m32"
+      }
+    },
+    {
       "name": "msbuild",
       "inherits": "default",
       "displayName": "MSBuild Config",
@@ -45,6 +55,11 @@
       "configurePreset": "ninja"
     },
     {
+      "name": "clang-gnu",
+      "inherits": "ninja",
+      "configurePreset": "clang-gnu"
+    },
+    {
       "name": "msbuild",
       "inherits": "default",
       "configurePreset": "msbuild",
@@ -71,6 +86,11 @@
       "name": "ninja",
       "inherits": "default",
       "configurePreset": "ninja"
+    },
+    {
+      "name": "clang-gnu",
+      "inherits": "ninja",
+      "configurePreset": "clang-gnu"
     },
     {
       "name": "msbuild",

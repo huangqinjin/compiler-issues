@@ -24,6 +24,8 @@ cmake_print_variables(
     CMAKE_VS_PLATFORM_TOOLSET
     CMAKE_VS_PLATFORM_TOOLSET_HOST_ARCHITECTURE
     CMAKE_VS_PLATFORM_TOOLSET_VERSION
+    CMAKE_CXX_LINKER_WRAPPER_FLAG
+    CMAKE_CXX_LINKER_WRAPPER_FLAG_SEP
 )
 
 if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 19.20)
@@ -43,7 +45,7 @@ if(NOT CMAKE_VS_PLATFORM_TOOLSET MATCHES [[_xp$]])
     include_directories(${WINDOWS_SDK}Include)
     link_directories(${WINDOWS_SDK}Lib)
     add_compile_definitions(_USING_V110_SDK71_)
-    add_link_options(/SUBSYSTEM:CONSOLE,${SUBSYSTEM_VERSION})
+    add_link_options(LINKER:SHELL:/SUBSYSTEM:CONSOLE,${SUBSYSTEM_VERSION})
 else()
     # Need to install the following Visual Studio 2019 Components
     #  1. C++ Windows XP Support for VS 2017 (v141) tools
@@ -60,7 +62,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}Init)
 
 if(DELAY)
     target_link_libraries(${PROJECT_NAME} PRIVATE delayimp)
-    target_link_options(${PROJECT_NAME} PRIVATE /DELAYLOAD:$<TARGET_FILE_NAME:${PROJECT_NAME}Init>)
+    target_link_options(${PROJECT_NAME} PRIVATE LINKER:/DELAYLOAD:$<TARGET_FILE_NAME:${PROJECT_NAME}Init>)
 endif()
 
 enable_testing()
