@@ -27,6 +27,16 @@
       }
     },
     {
+      "name": "clang-msvc",
+      "inherits": "ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang-cl",
+        "CMAKE_CXX_COMPILER": "clang-cl",
+        "CMAKE_C_FLAGS": "-m32",
+        "CMAKE_CXX_FLAGS": "-m32"
+      }
+    },
+    {
       "name": "msbuild",
       "inherits": "default",
       "displayName": "MSBuild Config",
@@ -60,6 +70,11 @@
       "configurePreset": "clang-gnu"
     },
     {
+      "name": "clang-msvc",
+      "inherits": "ninja",
+      "configurePreset": "clang-msvc"
+    },
+    {
       "name": "msbuild",
       "inherits": "default",
       "configurePreset": "msbuild",
@@ -91,6 +106,11 @@
       "name": "clang-gnu",
       "inherits": "ninja",
       "configurePreset": "clang-gnu"
+    },
+    {
+      "name": "clang-msvc",
+      "inherits": "ninja",
+      "configurePreset": "clang-msvc"
     },
     {
       "name": "msbuild",

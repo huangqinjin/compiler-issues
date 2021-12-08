@@ -16,6 +16,8 @@ include(CMakePrintHelpers)
 cmake_print_variables(
     DELAY
     CMAKE_GENERATOR
+    MSVC
+    MSVC_VERSION
     CMAKE_CXX_COMPILER
     CMAKE_CXX_COMPILER_VERSION
     CMAKE_GENERATOR_PLATFORM
