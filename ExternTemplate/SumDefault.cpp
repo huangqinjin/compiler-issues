@@ -1,4 +1,8 @@
+#if MODULE
+module Calculator;
+#else
 #include "Calculator.hpp"
+#endif
 
 
 // Implicit instantiation

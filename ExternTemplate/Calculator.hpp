@@ -17,9 +17,7 @@
 # define CALCULATOR_API CALCULATOR_IMPORT
 #endif
 
-#ifndef SIZE
-# define SIZE 400
-#endif
+inline constexpr unsigned SIZE = 400;
 
 // List is used to make generated object files big enough.
 template<unsigned N>

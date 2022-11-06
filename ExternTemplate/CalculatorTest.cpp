@@ -1,4 +1,8 @@
+#if MODULE
+import Calculator;
+#else
 #include "Calculator.hpp"
+#endif
 
 int main(int argc, char* argv[])
 {

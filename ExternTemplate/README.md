@@ -1,12 +1,13 @@
 # Class Template Explicit Instantiation
 
-| EXTERN | CLASS | INLINE | SHARED | Times of Instantiation |
-|:------:|:-----:|:------:|:------:|:----------------------:|
-| OFF    |       |        |        | Three |
-| ON     | OFF   |        |        | One |
-| ON     | ON    | OFF    | OFF    | One |
-| ON     | ON    | ON     | OFF    | **BUG(wonfix): Three** |
-| ON     | ON    |        | ON     | **BUG: Two with C4910** |
+| MODULE | EXTERN | CLASS | INLINE | SHARED | Times of Instantiation |
+|:------:|:------:|:-----:|:------:|:------:|:----------------------:|
+| OFF    | OFF    |       |        |        | Three |
+| OFF    | ON     | OFF   |        |        | One |
+| OFF    | ON     | ON    | OFF    | OFF    | One |
+| OFF    | ON     | ON    | ON     | OFF    | **BUG(wonfix): Three** |
+| OFF    | ON     | ON    |        | ON     | **BUG: Two with C4910** |
+| ON     | ON     | ON    | OFF    | ON     | **Two with C4910** |
 
 ## References
 
