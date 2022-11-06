@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CALCULATOR_HPP
+#define CALCULATOR_HPP
 
 #ifdef _MSC_VER
 # define CALCULATOR_EXPORT __declspec(dllexport)
@@ -73,4 +74,6 @@ extern CALCULATOR_API unsigned Calculator_sum_default();
 # else
     extern template CALCULATOR_API unsigned Calculator_sum<SIZE>();
 # endif
+#endif
+
 #endif

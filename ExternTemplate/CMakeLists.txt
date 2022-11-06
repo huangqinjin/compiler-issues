@@ -25,7 +25,13 @@ definition(INLINE "Define member function inside class" OFF)
 definition(SHARED "Build shared library" OFF)
 set(BUILD_SHARED_LIBS ${SHARED})
 
-add_subdirectory(Calculator)
+add_library(Calculator
+    Calculator.cpp
+    SumDefault.cpp
+)
+
+get_target_property(TYPE Calculator TYPE)
+target_compile_definitions(Calculator PUBLIC Calculator_${TYPE} PRIVATE Calculator_EXPORTS)
 
 
 add_executable(${PROJECT_NAME}
